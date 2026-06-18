@@ -42,7 +42,6 @@ export const products: Product[] = [
     images: [
       "/images/pro-styler-1.png",
       "/images/pro-styler-2.png",
-      "/images/pro-styler-3.png",
     ],
     heroImage: "/images/pro-styler-1.png",
     packs: packs(),
