@@ -1,0 +1,30 @@
+COME AGGIUNGERE LE FOTO DEI PRODOTTI
+====================================
+
+Salva le immagini in questa cartella (frontend/public/images/) con questi nomi
+ESATTI. Finché non ci sono, il sito mostra un placeholder rosa "Néllia"
+(nessuna immagine rotta — fallback automatico via SmartImage).
+
+Néllia Pro Styler 4 in 1:
+  pro-styler-1.jpg   (anche usata nella hero della home)
+  pro-styler-2.jpg
+  pro-styler-3.jpg
+  pro-styler-4.jpg
+
+Néllia Siero Termo-Attivo:
+  siero-1.jpg
+  siero-2.jpg
+  siero-3.jpg
+
+Néllia Rituale Polvere:
+  polvere-1.jpg
+  polvere-2.jpg
+  polvere-3.jpg
+
+Pagina Chi siamo:
+  about.jpg
+
+Consigli:
+- Formato quadrato (es. 1000x1000) per i prodotti.
+- JPG o WebP, peso < 300 KB per immagine.
+- Dopo aver aggiunto i file, ricarica la pagina (il dev server le prende subito).

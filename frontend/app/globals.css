@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --crema: #faf5ee;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--crema);
+  color: #1f1a17;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: #f5dde2;
+  color: #a52854;
+}
+
+.section {
+  @apply mx-auto max-w-7xl px-4;
+}
