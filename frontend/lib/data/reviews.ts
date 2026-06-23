@@ -68,6 +68,17 @@ export const reviews: Review[] = [
     verified: true,
   },
   {
+    id: "r8",
+    productSlug: "nellia-pro-styler",
+    author: "Nezha",
+    city: "Palermo",
+    rating: 5,
+    date: "2026-06-15",
+    title: "Capelli morbidi e lucenti",
+    body: "Lo styler è leggero e facile da usare. In pochi minuti ho la piega che volevo, senza effetto crespo. Consigliatissimo.",
+    verified: true,
+  },
+  {
     id: "r7",
     productSlug: "nellia-rituale-polvere",
     author: "Martina L.",

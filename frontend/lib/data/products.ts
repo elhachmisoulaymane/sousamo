@@ -38,7 +38,7 @@ export const products: Product[] = [
     description:
       "Il Néllia Pro Styler 4 in 1 nasce per ridare alle donne italiane il salone a casa propria. Grazie alla tecnologia a ioni negativi e al controllo intelligente del calore, asciuga e modella i capelli riducendo crespo e doppie punte. Quattro accessori intercambiabili per ogni esigenza: spazzola tonda per il volume, piastra per il liscio, concentratore e diffusore per i ricci.",
     rating: 4.8,
-    reviewsCount: 1247,
+    reviewsCount: 1248,
     images: [
       "/images/pro-styler-1.png",
       "/images/pro-styler-2.png",
