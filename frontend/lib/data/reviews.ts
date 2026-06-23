@@ -71,7 +71,7 @@ export const reviews: Review[] = [
     id: "r8",
     productSlug: "nellia-pro-styler",
     author: "Nezha",
-    city: "Palermo",
+    city: "Alessandria",
     rating: 5,
     date: "2026-06-15",
     title: "Capelli morbidi e lucenti",
