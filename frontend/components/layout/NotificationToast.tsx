@@ -8,7 +8,8 @@ const messages = [
   { name: "Francesca", city: "Roma", product: "Siero Termo-Attivo" },
   { name: "Sara", city: "Torino", product: "Pro Styler 4 in 1" },
   { name: "Valentina", city: "Napoli", product: "Rituale Polvere" },
-  { name: "Chiara", city: "Bologna", product: "Pro Styler 4 in 1" },
+  { name: "Nezha", city: "Alessandria", product: "Pro Styler 4 in 1" },
+  { name: "Laura", city: "Genova", product: "Pro Styler 4 in 1" },
   { name: "Elena", city: "Firenze", product: "Siero Termo-Attivo" },
 ];
 

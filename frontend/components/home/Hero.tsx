@@ -34,7 +34,7 @@ export function Hero() {
           </div>
 
           <p className="mt-5 text-sm text-espresso-700/70">
-            💳 Pagamento alla consegna · 🚚 Spedizione in 3-5 giorni
+            💳 Pagamento alla consegna · 🚚 Spedizione in 3-5 giorni · <strong>da 49 €</strong>
           </p>
         </div>
 

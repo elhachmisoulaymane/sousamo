@@ -13,7 +13,7 @@ PRODUCTS = [
         "name": "Néllia Pro Styler 4 in 1",
         "tagline": "La spazzola asciugacapelli che sostituisce phon, piastra e arricciacapelli",
         "rating": 4.8,
-        "reviews_count": 1247,
+        "reviews_count": 1252,
         "packs": [
             {"qty": 1, "price": 49},
             {"qty": 2, "price": 79},

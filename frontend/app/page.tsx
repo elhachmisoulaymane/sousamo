@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { Stars } from "@/components/ui/Stars";
 import { SmartImage } from "@/components/ui/SmartImage";
 import { products } from "@/lib/data/products";
-import { reviews } from "@/lib/data/reviews";
+import { reviews, getReviews } from "@/lib/data/reviews";
 import { Sparkles, ShieldCheck, Truck, Award, Heart } from "lucide-react";
 
 const pillars = [
@@ -91,7 +91,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className="section mt-10 grid gap-6 md:grid-cols-3">
-          {reviews.slice(0, 3).map((r) => (
+          {getReviews("nellia-pro-styler").slice(0, 3).map((r) => (
             <div key={r.id} className="rounded-3xl border border-argento-200 bg-white p-6 shadow-soft">
               <Stars rating={r.rating} size={15} />
               <h4 className="mt-3 font-serif text-lg text-espresso-900">{r.title}</h4>
