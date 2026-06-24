@@ -28,13 +28,13 @@ export function Hero() {
             <Link href="/prodotti/nellia-pro-styler">
               <Button size="lg">Scopri il Pro Styler 4 in 1</Button>
             </Link>
-            <Link href="/prodotti/nellia-pro-styler">
-              <Button size="lg" variant="secondary">Ordina ora — 49 €</Button>
+            <Link href="/collezione">
+              <Button size="lg" variant="secondary">Vedi la collezione</Button>
             </Link>
           </div>
 
           <p className="mt-5 text-sm text-espresso-700/70">
-            💳 Pagamento alla consegna · 🚚 Spedizione in 3-5 giorni · <strong>da 49 €</strong>
+            💳 Pagamento alla consegna · 🚚 Spedizione in 3-5 giorni
           </p>
         </div>
 

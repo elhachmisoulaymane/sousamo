@@ -6,7 +6,10 @@ const cols = [
   {
     title: "Negozio",
     links: [
+      { href: "/collezione", label: "Collezione" },
       { href: "/prodotti/nellia-pro-styler", label: "Pro Styler 4 in 1" },
+      { href: "/prodotti/nellia-siero-termo", label: "Siero Termo-Attivo" },
+      { href: "/prodotti/nellia-rituale-polvere", label: "Rituale Polvere" },
     ],
   },
   {
