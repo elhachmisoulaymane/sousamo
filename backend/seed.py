@@ -20,30 +20,6 @@ PRODUCTS = [
             {"qty": 3, "price": 99},
         ],
     },
-    {
-        "slug": "nellia-siero-termo",
-        "name": "Néllia Siero Termo-Attivo",
-        "tagline": "Lo scudo termico che protegge e nutre prima dello styling",
-        "rating": 4.7,
-        "reviews_count": 863,
-        "packs": [
-            {"qty": 1, "price": 49},
-            {"qty": 2, "price": 79},
-            {"qty": 3, "price": 99},
-        ],
-    },
-    {
-        "slug": "nellia-rituale-polvere",
-        "name": "Néllia Rituale Polvere",
-        "tagline": "L'integratore in polvere per capelli forti dall'interno",
-        "rating": 4.6,
-        "reviews_count": 541,
-        "packs": [
-            {"qty": 1, "price": 49},
-            {"qty": 2, "price": 79},
-            {"qty": 3, "price": 99},
-        ],
-    },
 ]
 
 REVIEWS = [
@@ -51,10 +27,8 @@ REVIEWS = [
      "title": "Finalmente piega da salone a casa", "body": "Lo uso ogni mattina, in 10 minuti ho i capelli lisci e voluminosi."},
     {"product_slug": "nellia-pro-styler", "author": "Francesca R.", "city": "Roma", "rating": 5,
      "title": "Vale ogni euro", "body": "Robusto e fa davvero la differenza. Capelli molto meno crespi."},
-    {"product_slug": "nellia-siero-termo", "author": "Valentina D.", "city": "Napoli", "rating": 5,
-     "title": "I capelli non si bruciano più", "body": "Morbidissimi e luminosi. Non unge per niente."},
-    {"product_slug": "nellia-rituale-polvere", "author": "Elena P.", "city": "Firenze", "rating": 5,
-     "title": "Gesto piacevole ogni mattina", "body": "Lo metto nel caffè e non si sente. Mi trovo benissimo."},
+    {"product_slug": "nellia-pro-styler", "author": "Nezha", "city": "Alessandria", "rating": 5,
+     "title": "Capelli morbidi e lucenti", "body": "Leggero e facile da usare. Consigliatissimo."},
 ]
 
 

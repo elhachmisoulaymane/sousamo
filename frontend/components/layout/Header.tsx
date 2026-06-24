@@ -8,7 +8,6 @@ import { useCart } from "@/lib/store/cart";
 import { useUI } from "@/lib/store/ui";
 
 const nav = [
-  { href: "/collezione", label: "Collezione" },
   { href: "/prodotti/nellia-pro-styler", label: "Pro Styler" },
   { href: "/chi-siamo", label: "Chi siamo" },
   { href: "/contatti", label: "Contatti" },

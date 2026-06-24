@@ -28,8 +28,8 @@ export function Hero() {
             <Link href="/prodotti/nellia-pro-styler">
               <Button size="lg">Scopri il Pro Styler 4 in 1</Button>
             </Link>
-            <Link href="/collezione">
-              <Button size="lg" variant="secondary">Vedi la collezione</Button>
+            <Link href="/prodotti/nellia-pro-styler">
+              <Button size="lg" variant="secondary">Ordina ora — 49 €</Button>
             </Link>
           </div>
 

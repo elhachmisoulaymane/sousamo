@@ -5,12 +5,11 @@ import { CheckCircle2 } from "lucide-react";
 
 const messages = [
   { name: "Giulia", city: "Milano", product: "Pro Styler 4 in 1" },
-  { name: "Francesca", city: "Roma", product: "Siero Termo-Attivo" },
+  { name: "Francesca", city: "Roma", product: "Pro Styler 4 in 1" },
   { name: "Sara", city: "Torino", product: "Pro Styler 4 in 1" },
-  { name: "Valentina", city: "Napoli", product: "Rituale Polvere" },
   { name: "Nezha", city: "Alessandria", product: "Pro Styler 4 in 1" },
   { name: "Laura", city: "Genova", product: "Pro Styler 4 in 1" },
-  { name: "Elena", city: "Firenze", product: "Siero Termo-Attivo" },
+  { name: "Monica", city: "Bari", product: "Pro Styler 4 in 1" },
 ];
 
 export function NotificationToast() {
