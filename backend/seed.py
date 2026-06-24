@@ -15,9 +15,9 @@ PRODUCTS = [
         "rating": 4.8,
         "reviews_count": 1247,
         "packs": [
-            {"qty": 1, "price": 105},
-            {"qty": 2, "price": 179},
-            {"qty": 3, "price": 249},
+            {"qty": 1, "price": 49},
+            {"qty": 2, "price": 79},
+            {"qty": 3, "price": 99},
         ],
     },
     {
@@ -27,9 +27,9 @@ PRODUCTS = [
         "rating": 4.7,
         "reviews_count": 863,
         "packs": [
-            {"qty": 1, "price": 105},
-            {"qty": 2, "price": 179},
-            {"qty": 3, "price": 249},
+            {"qty": 1, "price": 49},
+            {"qty": 2, "price": 79},
+            {"qty": 3, "price": 99},
         ],
     },
     {
@@ -39,9 +39,9 @@ PRODUCTS = [
         "rating": 4.6,
         "reviews_count": 541,
         "packs": [
-            {"qty": 1, "price": 105},
-            {"qty": 2, "price": 179},
-            {"qty": 3, "price": 249},
+            {"qty": 1, "price": 49},
+            {"qty": 2, "price": 79},
+            {"qty": 3, "price": 99},
         ],
     },
 ]

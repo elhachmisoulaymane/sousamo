@@ -6,22 +6,22 @@ function packs(): Product["packs"] {
   return [
     {
       qty: 1,
-      price: 105,
-      pricePerUnit: 105,
+      price: 49,
+      pricePerUnit: 49,
       label: "1 pezzo",
     },
     {
       qty: 2,
-      price: 179,
-      pricePerUnit: 89.5,
+      price: 79,
+      pricePerUnit: 39.5,
       label: "2 pezzi",
       badge: "Più scelto",
       highlight: true,
     },
     {
       qty: 3,
-      price: 249,
-      pricePerUnit: 83,
+      price: 99,
+      pricePerUnit: 33,
       label: "3 pezzi",
       badge: "Miglior prezzo",
     },
