@@ -74,6 +74,7 @@ export const products: Product[] = [
     ],
     crossSellSlugs: ["nellia-siero-termo", "nellia-rituale-polvere"],
     upsellPrice: 49,
+    available: true,
   },
   {
     slug: "nellia-siero-termo",
@@ -120,6 +121,7 @@ export const products: Product[] = [
       "Aqua, Argania Spinosa Kernel Oil, Hydrolyzed Keratin, Tocopherol (Vitamina E), Panthenol, Parfum.",
     crossSellSlugs: ["nellia-pro-styler", "nellia-rituale-polvere"],
     upsellPrice: 49,
+    available: false,
   },
   {
     slug: "nellia-rituale-polvere",
@@ -166,6 +168,7 @@ export const products: Product[] = [
       "Collagene marino idrolizzato, Inulina, L-Biotina, Zinco gluconato, Estratto di equiseto, Aroma naturale.",
     crossSellSlugs: ["nellia-pro-styler", "nellia-siero-termo"],
     upsellPrice: 49,
+    available: false,
   },
 ];
 

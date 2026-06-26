@@ -25,6 +25,8 @@ export interface Product {
   ingredients?: string;
   crossSellSlugs: string[];
   upsellPrice: number;
+  /** Default: disponibile. Imposta false per prodotti non acquistabili. */
+  available?: boolean;
 }
 
 export interface Review {

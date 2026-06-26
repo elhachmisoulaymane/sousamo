@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { ShieldCheck, Truck, Clock } from "lucide-react";
 import { PackSelector } from "./PackSelector";
@@ -16,6 +17,7 @@ export function AddToCartCTA({ product }: { product: Product }) {
   const [qty, setQty] = useState(2);
   const addItem = useCart((s) => s.addItem);
   const openCart = useUI((s) => s.openCart);
+  const available = product.available !== false;
 
   const pack = product.packs.find((p) => p.qty === qty) ?? product.packs[0];
 
@@ -51,15 +53,29 @@ export function AddToCartCTA({ product }: { product: Product }) {
 
       <p className="text-espresso-800">{product.shortDescription}</p>
 
-      <PackSelector packs={product.packs} selected={qty} onSelect={setQty} />
+      {available ? (
+        <>
+          <PackSelector packs={product.packs} selected={qty} onSelect={setQty} />
 
-      <div className="rounded-2xl bg-cipria-100 p-4 text-sm text-veluxa-700">
-        🔥 Offerta valida solo oggi · scorte limitate per il pagamento alla consegna
-      </div>
+          <div className="rounded-2xl bg-cipria-100 p-4 text-sm text-veluxa-700">
+            🔥 Offerta valida solo oggi · scorte limitate per il pagamento alla consegna
+          </div>
 
-      <Button size="lg" fullWidth onClick={handleAdd}>
-        Aggiungi al carrello — {formatEuro(pack.price)}
-      </Button>
+          <Button size="lg" fullWidth onClick={handleAdd}>
+            Aggiungi al carrello — {formatEuro(pack.price)}
+          </Button>
+        </>
+      ) : (
+        <div className="space-y-4 rounded-2xl border border-argento-200 bg-argento-50 p-5">
+          <p className="font-semibold text-espresso-900">Al momento non disponibile</p>
+          <p className="text-sm text-espresso-700/80">
+            Stiamo rifornendo le scorte. Nel frattempo scopri il nostro bestseller, disponibile con pagamento alla consegna.
+          </p>
+          <Link href="/prodotti/nellia-pro-styler">
+            <Button size="lg" fullWidth>Vai al Pro Styler 4 in 1</Button>
+          </Link>
+        </div>
+      )}
 
       <div className="grid grid-cols-3 gap-3 text-center text-xs text-espresso-700/80">
         <span className="flex flex-col items-center gap-1">
