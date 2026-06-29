@@ -7,6 +7,7 @@ from app.db import get_db
 from app.models import Order
 from app.schemas import OrderIn, OrderOut
 from app.services.capi import dispatch_capi
+from app.services.roxod import push_order_to_roxod
 from app.services.sheets import push_order_to_sheet
 
 router = APIRouter(prefix="/orders", tags=["orders"])
@@ -68,5 +69,6 @@ async def create_order(
         order.fbc,
     )
     background.add_task(push_order_to_sheet, order)
+    background.add_task(push_order_to_roxod, order)
 
     return order

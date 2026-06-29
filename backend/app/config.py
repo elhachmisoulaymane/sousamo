@@ -34,6 +34,11 @@ class Settings(BaseSettings):
     sheets_webhook_url: str = ""
     sheets_hmac_secret: str = ""
 
+    # Roxod (ordini COD → servizio esterno)
+    roxod_webhook_url: str = ""
+    roxod_api_key: str = ""
+    roxod_auth_header: str = "Authorization"
+
     @field_validator("database_url")
     @classmethod
     def _normalize_database_url(cls, v: str) -> str:
