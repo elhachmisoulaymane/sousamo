@@ -21,6 +21,7 @@ Aggiungi queste variabili in **Ambiente**:
 | `ROXOD_WEBHOOK_URL` | URL fornito da Roxod | Sì |
 | `ROXOD_API_KEY` | token API Roxod | Se Roxod lo chiede |
 | `ROXOD_AUTH_HEADER` | `Authorization` o `X-Api-Key` | No |
+| `ROXOD_DEFAULT_SKU` | `RCOD-GZRLDNKF` (Pro Styler) | No |
 
 Poi **Deploy** del servizio **API** (non solo web).
 
@@ -30,6 +31,7 @@ Poi **Deploy** del servizio **API** (non solo web).
 {
   "order_ref": "NL-A1B2C3D4",
   "created_at": "2026-06-21T20:00:00",
+  "sku": "RCOD-GZRLDNKF",
   "customer": {
     "full_name": "Giulia Rossi",
     "phone": "+393331234567",
@@ -39,6 +41,7 @@ Poi **Deploy** del servizio **API** (non solo web).
   },
   "items": [
     {
+      "sku": "RCOD-GZRLDNKF",
       "slug": "nellia-pro-styler",
       "name": "Néllia Pro Styler 4 in 1",
       "qty": 2,

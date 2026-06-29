@@ -74,6 +74,7 @@ export const products: Product[] = [
     ],
     crossSellSlugs: [],
     upsellPrice: 49,
+    roxodSku: "RCOD-GZRLDNKF",
   },
 ];
 

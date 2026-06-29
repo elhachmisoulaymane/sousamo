@@ -15,12 +15,42 @@ from app.config import settings
 
 log = structlog.get_logger()
 
+# Mappa slug negozio → SKU Roxod
+ROXOD_SKU_BY_SLUG: dict[str, str] = {
+    "nellia-pro-styler": "RCOD-GZRLDNKF",
+}
+
+
+def _roxod_sku(slug: str) -> str:
+    return ROXOD_SKU_BY_SLUG.get(slug) or settings.roxod_default_sku
+
 
 def _build_payload(order) -> dict:
     items = order.items or []
+    line_items = []
+    for i in items:
+        slug = i.get("slug", "")
+        qty = i.get("qty", 1)
+        sku = _roxod_sku(slug)
+        line_items.append(
+            {
+                "sku": sku,
+                "slug": slug,
+                "name": i.get("name", ""),
+                "qty": qty,
+                "quantity": qty,
+                "unit_label": i.get("unitLabel", ""),
+                "price": i.get("price", 0),
+                "is_upsell": bool(i.get("isUpsell")),
+            }
+        )
+
+    primary_sku = line_items[0]["sku"] if line_items else settings.roxod_default_sku
+
     return {
         "order_ref": order.order_ref,
         "created_at": order.created_at.isoformat() if order.created_at else "",
+        "sku": primary_sku,
         "customer": {
             "full_name": order.full_name,
             "phone": order.phone,
@@ -28,17 +58,7 @@ def _build_payload(order) -> dict:
             "city": order.city,
             "postal_code": order.postal_code,
         },
-        "items": [
-            {
-                "slug": i.get("slug", ""),
-                "name": i.get("name", ""),
-                "qty": i.get("qty", 1),
-                "unit_label": i.get("unitLabel", ""),
-                "price": i.get("price", 0),
-                "is_upsell": bool(i.get("isUpsell")),
-            }
-            for i in items
-        ],
+        "items": line_items,
         "total": order.total,
         "currency": order.currency or "EUR",
         "payment_method": "cod",

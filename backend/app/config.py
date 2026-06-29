@@ -38,6 +38,7 @@ class Settings(BaseSettings):
     roxod_webhook_url: str = ""
     roxod_api_key: str = ""
     roxod_auth_header: str = "Authorization"
+    roxod_default_sku: str = "RCOD-GZRLDNKF"
 
     @field_validator("database_url")
     @classmethod
