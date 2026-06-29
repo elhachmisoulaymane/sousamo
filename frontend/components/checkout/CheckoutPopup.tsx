@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { useCart } from "@/lib/store/cart";
 import { useUI } from "@/lib/store/ui";
+import { isProductAvailable } from "@/lib/data/products";
 import { formatEuro } from "@/lib/utils/format";
 import { Pixels } from "@/lib/pixels/events";
 import type { OrderForm } from "@/lib/types";
@@ -48,20 +49,22 @@ export function CheckoutPopup() {
   }
 
   async function handleConfirm() {
+    const allowedItems = items.filter((item) => isProductAvailable(item.slug));
+    if (allowedItems.length === 0) return;
     if (!validate()) return;
     setSubmitting(true);
-    const orderValue = total();
+    const orderValue = allowedItems.reduce((sum, item) => sum + item.price, 0);
     Pixels.purchase({
       value: orderValue,
       currency: "EUR",
-      num_items: items.length,
-      content_ids: items.map((i) => i.slug),
+      num_items: allowedItems.length,
+      content_ids: allowedItems.map((i) => i.slug),
     });
 
     const order = {
       ...form,
       phone: form.phone.replace(/\s/g, ""),
-      items,
+      items: allowedItems,
       total: orderValue,
       createdAt: new Date().toISOString(),
     };

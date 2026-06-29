@@ -6,17 +6,17 @@ import { ReviewsList } from "@/components/product/ReviewsList";
 import { FAQAccordion } from "@/components/product/FAQAccordion";
 import { ProductCard } from "@/components/product/ProductCard";
 import { Icon } from "@/components/ui/Icon";
-import { getProduct, getCrossSell, products } from "@/lib/data/products";
+import { getProduct, getCrossSell, getAvailableProducts, isProductAvailable } from "@/lib/data/products";
 import { getReviews } from "@/lib/data/reviews";
 import { Check } from "lucide-react";
 
 export function generateStaticParams() {
-  return products.map((p) => ({ slug: p.slug }));
+  return getAvailableProducts().map((p) => ({ slug: p.slug }));
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const product = getProduct(params.slug);
-  if (!product) return { title: "Prodotto non trovato" };
+  if (!product || !isProductAvailable(product.slug)) return { title: "Prodotto non trovato" };
   return {
     title: product.name,
     description: product.shortDescription,
@@ -25,7 +25,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 
 export default function ProductPage({ params }: { params: { slug: string } }) {
   const product = getProduct(params.slug);
-  if (!product) notFound();
+  if (!product || !isProductAvailable(product.slug)) notFound();
 
   const reviews = getReviews(product.slug);
   const crossSell = getCrossSell(product.slug);

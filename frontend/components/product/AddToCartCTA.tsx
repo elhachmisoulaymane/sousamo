@@ -22,6 +22,7 @@ export function AddToCartCTA({ product }: { product: Product }) {
   const pack = product.packs.find((p) => p.qty === qty) ?? product.packs[0];
 
   function handleAdd() {
+    if (!available) return;
     addItem({
       slug: product.slug,
       name: product.name,

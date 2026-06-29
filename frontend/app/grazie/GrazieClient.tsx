@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { formatEuro } from "@/lib/utils/format";
+import { isProductAvailable } from "@/lib/data/products";
 
 interface StoredOrder {
   fullName: string;
@@ -22,7 +23,7 @@ interface StoredOrder {
   city: string;
   postalCode: string;
   total: number;
-  items: { name: string; unitLabel: string; price: number }[];
+  items: { slug: string; name: string; unitLabel: string; price: number }[];
 }
 
 export function GrazieClient() {
@@ -35,13 +36,20 @@ export function GrazieClient() {
       const raw = sessionStorage.getItem("nellia-last-order");
       if (raw) {
         const parsed = JSON.parse(raw) as StoredOrder;
-        setOrder(parsed);
+        const allowedItems = parsed.items.filter((item) => isProductAvailable(item.slug));
+        const sanitized = {
+          ...parsed,
+          items: allowedItems,
+          total: allowedItems.reduce((sum, item) => sum + item.price, 0),
+        };
+        if (allowedItems.length === 0) return;
+        setOrder(sanitized);
         const API = process.env.NEXT_PUBLIC_API_BASE_URL;
         if (API) {
           fetch(`${API}/api/orders`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: raw,
+            body: JSON.stringify(sanitized),
             keepalive: true,
           }).catch(() => {});
         }

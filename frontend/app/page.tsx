@@ -4,7 +4,7 @@ import { ProductCard } from "@/components/product/ProductCard";
 import { Button } from "@/components/ui/Button";
 import { Stars } from "@/components/ui/Stars";
 import { SmartImage } from "@/components/ui/SmartImage";
-import { products } from "@/lib/data/products";
+import { getAvailableProducts } from "@/lib/data/products";
 import { reviews } from "@/lib/data/reviews";
 import { Sparkles, ShieldCheck, Truck, Award, Heart } from "lucide-react";
 
@@ -16,9 +16,9 @@ const pillars = [
 ];
 
 const steps = [
-  { n: "01", title: "Prepara", text: "Applica il Siero Termo-Attivo sui capelli umidi per proteggerli." },
+  { n: "01", title: "Prepara", text: "Parti da capelli puliti e tamponati, pronti per lo styling." },
   { n: "02", title: "Modella", text: "Asciuga e dai forma con il Pro Styler 4 in 1 in pochi minuti." },
-  { n: "03", title: "Nutri", text: "Sostieni i capelli dall'interno con il Rituale Polvere ogni giorno." },
+  { n: "03", title: "Risultato", text: "Capelli lisci, voluminosi e luminosi come da salone, ogni mattina." },
 ];
 
 export default function HomePage() {
@@ -43,13 +43,13 @@ export default function HomePage() {
       <section className="py-16">
         <div className="section text-center">
           <p className="text-sm font-semibold uppercase tracking-wide text-veluxa-600">La collezione</p>
-          <h2 className="mt-2 font-serif text-4xl text-espresso-900">Il rituale completo Néllia</h2>
+          <h2 className="mt-2 font-serif text-4xl text-espresso-900">Il bestseller Néllia</h2>
           <p className="mx-auto mt-3 max-w-xl text-espresso-700/80">
-            Tre prodotti pensati per lavorare insieme: protezione, styling e benessere.
+            Il Pro Styler 4 in 1 per protezione, styling e risultati da salone a casa.
           </p>
         </div>
         <div className="section mt-10 grid gap-6 md:grid-cols-3">
-          {products.map((p) => (
+          {getAvailableProducts().map((p) => (
             <ProductCard key={p.slug} product={p} />
           ))}
         </div>

@@ -1,6 +1,6 @@
 import secrets
 
-from fastapi import APIRouter, BackgroundTasks, Depends, Request
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, Request
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db import get_db
@@ -10,6 +10,8 @@ from app.services.capi import dispatch_capi
 from app.services.sheets import push_order_to_sheet
 
 router = APIRouter(prefix="/orders", tags=["orders"])
+
+UNAVAILABLE_SLUGS = frozenset({"nellia-siero-termo", "nellia-rituale-polvere"})
 
 
 def _order_ref() -> str:
@@ -23,6 +25,13 @@ async def create_order(
     background: BackgroundTasks,
     db: AsyncSession = Depends(get_db),
 ):
+    blocked = [item.slug for item in payload.items if item.slug in UNAVAILABLE_SLUGS]
+    if blocked:
+        raise HTTPException(
+            status_code=400,
+            detail="Uno o più prodotti non sono al momento disponibili.",
+        )
+
     order = Order(
         order_ref=_order_ref(),
         full_name=payload.fullName,

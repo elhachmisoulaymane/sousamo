@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type { CartItem } from "@/lib/types";
+import { isProductAvailable } from "@/lib/data/products";
 
 interface CartState {
   items: CartItem[];
@@ -15,7 +16,8 @@ export const useCart = create<CartState>()(
   persist(
     (set, get) => ({
       items: [],
-      addItem: (item) =>
+      addItem: (item) => {
+        if (!isProductAvailable(item.slug)) return;
         set((state) => {
           const idx = state.items.findIndex(
             (i) => i.slug === item.slug && !!i.isUpsell === !!item.isUpsell,
@@ -26,7 +28,8 @@ export const useCart = create<CartState>()(
             return { items: next };
           }
           return { items: [...state.items, item] };
-        }),
+        });
+      },
       removeItem: (slug, isUpsell) =>
         set((state) => ({
           items: state.items.filter(
@@ -37,6 +40,15 @@ export const useCart = create<CartState>()(
       total: () => get().items.reduce((sum, i) => sum + i.price, 0),
       count: () => get().items.reduce((sum, i) => sum + i.qty, 0),
     }),
-    { name: "nellia-cart" },
+    { name: "nellia-cart",
+      partialize: (state) => state,
+      onRehydrateStorage: () => (state) => {
+        if (!state) return;
+        const items = state.items.filter((item) => isProductAvailable(item.slug));
+        if (items.length !== state.items.length) {
+          state.items = items;
+        }
+      },
+    },
   ),
 );

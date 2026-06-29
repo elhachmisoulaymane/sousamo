@@ -72,7 +72,7 @@ export const products: Product[] = [
       { q: "Rovina i capelli?", a: "No. Il controllo del calore e gli ioni negativi proteggono la fibra, riducendo i danni rispetto a phon e piastra separati." },
       { q: "Quanto dura la spedizione?", a: "Consegna in 3-5 giorni lavorativi in tutta Italia, con pagamento alla consegna." },
     ],
-    crossSellSlugs: ["nellia-siero-termo", "nellia-rituale-polvere"],
+    crossSellSlugs: [],
     upsellPrice: 49,
     available: true,
   },
@@ -178,6 +178,11 @@ export function getProduct(slug: string): Product | undefined {
 
 export function getAvailableProducts(): Product[] {
   return products.filter((p) => p.available !== false);
+}
+
+export function isProductAvailable(slug: string): boolean {
+  const product = getProduct(slug);
+  return product ? product.available !== false : false;
 }
 
 export function getCrossSell(slug: string): Product[] {

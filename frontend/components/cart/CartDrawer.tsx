@@ -6,20 +6,21 @@ import { Button } from "@/components/ui/Button";
 import { useCart } from "@/lib/store/cart";
 import { useUI } from "@/lib/store/ui";
 import { formatEuro } from "@/lib/utils/format";
-import { getCrossSell, products } from "@/lib/data/products";
+import { getCrossSell, getAvailableProducts, isProductAvailable } from "@/lib/data/products";
 import { Pixels } from "@/lib/pixels/events";
 
 export function CartDrawer() {
   const { items, removeItem, addItem, total } = useCart();
   const { cartOpen, closeCart, openCheckout } = useUI();
 
-  const baseSlug = items.find((i) => !i.isUpsell)?.slug ?? products[0].slug;
-  const crossSell = getCrossSell(baseSlug).filter(
+  const baseSlug = items.find((i) => !i.isUpsell)?.slug ?? getAvailableProducts()[0]?.slug ?? "";
+  const crossSell = baseSlug ? getCrossSell(baseSlug).filter(
     (p) => !items.some((i) => i.slug === p.slug),
-  );
+  ) : [];
 
   function addCross(slug: string) {
-    const p = products.find((x) => x.slug === slug);
+    if (!isProductAvailable(slug)) return;
+    const p = getAvailableProducts().find((x) => x.slug === slug);
     if (!p) return;
     addItem({
       slug: p.slug,
