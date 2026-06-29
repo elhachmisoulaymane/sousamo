@@ -176,12 +176,16 @@ export function getProduct(slug: string): Product | undefined {
   return products.find((p) => p.slug === slug);
 }
 
+export function getAvailableProducts(): Product[] {
+  return products.filter((p) => p.available !== false);
+}
+
 export function getCrossSell(slug: string): Product[] {
   const p = getProduct(slug);
   if (!p) return [];
   return p.crossSellSlugs
     .map((s) => getProduct(s))
-    .filter((x): x is Product => Boolean(x));
+    .filter((x): x is Product => Boolean(x && x.available !== false));
 }
 
 export { PLACEHOLDER };
