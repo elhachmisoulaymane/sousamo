@@ -50,12 +50,10 @@ Sei nel posto giusto: **Integrazioni → Foglio Google**.
 ### 1. Clicca **Documentazione**
 Leggi il formato colonne richiesto da RoxCod. Deve combaciare con il nostro foglio (soprattutto **sku** = `RCOD-GZRLDNKF`).
 
-### 2. Clicca **Genera chiave API**
-- Servizio: Foglio Google
-- Email: la tua (mohammed88mar@hotmail.com)
-- Salva la chiave generata
+### 2. Clicca **Genera chiave API** ✅ (fatto)
+Hai già la chiave. **Non condividerla** in chat — mettila solo in Easypanel.
 
-### 3. Collega il Google Sheet
+### 3. Collega il Google Sheet in RoxCod
 Segui la documentazione RoxCod per:
 - incollare l'URL del foglio Google
 - autorizzare l'accesso (account Google)

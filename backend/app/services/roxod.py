@@ -72,12 +72,12 @@ def _build_payload(order) -> dict:
 
 
 async def push_order_to_roxod(order) -> bool:
-    if not settings.roxod_webhook_url:
+    if not settings.roxod_webhook_url and not (settings.roxod_api_url and settings.roxod_api_key):
         return False
 
     payload = _build_payload(order)
     body = json.dumps(payload, ensure_ascii=False)
-    headers = {"Content-Type": "application/json"}
+    headers = {"Content-Type": "application/json", "Accept": "application/json"}
 
     if settings.roxod_api_key:
         header_name = settings.roxod_auth_header or "Authorization"
@@ -86,12 +86,14 @@ async def push_order_to_roxod(order) -> bool:
         else:
             headers[header_name] = settings.roxod_api_key
 
+    target_url = settings.roxod_webhook_url or settings.roxod_api_url
+
     try:
         async with httpx.AsyncClient(timeout=15) as client:
-            r = await client.post(settings.roxod_webhook_url, content=body, headers=headers)
+            r = await client.post(target_url, content=body, headers=headers)
             r.raise_for_status()
-        log.info("roxod_push_ok", order=order.order_ref)
+        log.info("roxod_push_ok", order=order.order_ref, target=target_url)
         return True
     except Exception as e:  # noqa: BLE001
-        log.warning("roxod_push_failed", error=str(e), order=order.order_ref)
+        log.warning("roxod_push_failed", error=str(e), order=order.order_ref, target=target_url)
         return False

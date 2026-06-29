@@ -34,8 +34,9 @@ class Settings(BaseSettings):
     sheets_webhook_url: str = ""
     sheets_hmac_secret: str = ""
 
-    # Roxod (ordini COD → servizio esterno)
+    # Roxod / RoxCod (ordini COD → servizio esterno)
     roxod_webhook_url: str = ""
+    roxod_api_url: str = ""
     roxod_api_key: str = ""
     roxod_auth_header: str = "Authorization"
     roxod_default_sku: str = "RCOD-GZRLDNKF"
