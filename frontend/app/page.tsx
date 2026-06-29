@@ -91,7 +91,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className="section mt-10 grid gap-6 md:grid-cols-3">
-          {reviews.slice(0, 3).map((r) => (
+          {reviews.filter((r) => r.productSlug === "nellia-pro-styler").slice(0, 3).map((r) => (
             <div key={r.id} className="rounded-3xl border border-argento-200 bg-white p-6 shadow-soft">
               <Stars rating={r.rating} size={15} />
               <h4 className="mt-3 font-serif text-lg text-espresso-900">{r.title}</h4>
