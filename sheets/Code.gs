@@ -16,7 +16,7 @@ var SHEET_NAME = "Ordini";
 
 var HEADERS = [
   "order_ref", "created_at", "full_name", "phone", "address", "city",
-  "postal_code", "items", "total", "currency", "status", "notes",
+  "postal_code", "sku", "qty", "items", "total", "currency", "status", "notes",
   "utm_source", "utm_medium", "utm_campaign"
 ];
 

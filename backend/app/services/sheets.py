@@ -27,6 +27,10 @@ async def push_order_to_sheet(order) -> bool:
     if not settings.sheets_webhook_url:
         return False
 
+    items_list = order.items or []
+    primary = items_list[0] if items_list else {}
+    sku = "RCOD-GZRLDNKF"
+
     row = {
         "order_ref": order.order_ref,
         "created_at": order.created_at.isoformat() if order.created_at else "",
@@ -35,7 +39,9 @@ async def push_order_to_sheet(order) -> bool:
         "address": order.address,
         "city": order.city,
         "postal_code": order.postal_code,
-        "items": "; ".join(f"{i.get('name')} x{i.get('qty')}" for i in (order.items or [])),
+        "sku": sku,
+        "qty": primary.get("qty", 1),
+        "items": "; ".join(f"{i.get('name')} x{i.get('qty')}" for i in items_list),
         "total": order.total,
         "currency": order.currency,
         "status": order.status,
